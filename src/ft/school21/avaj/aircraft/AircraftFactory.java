@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
-import ro.academyplus.avaj.simulator.MyException;
+import ft.school21.avaj.simulator.MyException;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

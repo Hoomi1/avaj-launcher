@@ -1,4 +1,4 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
 public class Coordinates {
     private int longitude;

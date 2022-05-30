@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
-import ro.academyplus.avaj.simulator.WeatherTower;
+import ft.school21.avaj.simulator.WeatherTower;
 
 public interface Flyable {
 

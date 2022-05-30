@@ -1,9 +1,8 @@
-package ro.academyplus.avaj.simulator;
+package ft.school21.avaj.simulator;
 
-import ro.academyplus.avaj.aircraft.AircraftFactory;
-import ro.academyplus.avaj.aircraft.BufferInFile;
+import ft.school21.avaj.aircraft.AircraftFactory;
+import ft.school21.avaj.aircraft.BufferAircraft;
 import java.io.*;
-import java.nio.Buffer;
 
 public class Simulator {
     static int timesSim;
@@ -25,7 +24,7 @@ public class Simulator {
             e.printMyException("Invalid parsing");
         }
         finally {
-            BufferInFile.closeBuf();
+            BufferAircraft.closeBuf();
         }
     }
 

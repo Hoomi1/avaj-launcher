@@ -1,6 +1,7 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
-import ro.academyplus.avaj.simulator.WeatherTower;
+import ft.school21.avaj.simulator.WeatherTower;
+
 import java.util.HashMap;
 
 public class Baloon extends Aircraft implements Flyable{
@@ -27,36 +28,36 @@ public class Baloon extends Aircraft implements Flyable{
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() + 4);
 //                System.out.println("Baloon#" + this.name + "(" + this.id + "): " + state.get("SUN"));
-                BufferInFile.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("SUN"));
+                BufferAircraft.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("SUN"));
                 break;
             case "RAIN": //RAIN
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(),
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 5);
 //                System.out.println("Baloon#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
-                BufferInFile.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
+                BufferAircraft.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
                 break;
             case "FOG": //FOG
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(),
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 3);
 //                System.out.println("Baloon#" + this.name + "(" + this.id + "): " + state.get("FOG"));
-                BufferInFile.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("FOG"));
+                BufferAircraft.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("FOG"));
                 break;
             case "SNOW": //SNOW
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(),
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 15);
 //                System.out.println("Baloon#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
-                BufferInFile.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
+                BufferAircraft.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
                 break;
         }
         if (this.coordinates.getHeight() <= 0)
         {
 //            System.out.println("Baloon#" + this.name + "(" + this.id + ") landing.");
 //            System.out.println("Tower says: Baloon#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
-            BufferInFile.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + ") landing.");
-            BufferInFile.RegisterBuffer().print("Tower says: Baloon#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
+            BufferAircraft.RegisterBuffer().print("Baloon#" + this.name + "(" + this.id + ") landing.");
+            BufferAircraft.RegisterBuffer().print("Tower says: Baloon#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
             this.weatherTower.unregister(this);
         }
     }
@@ -66,6 +67,6 @@ public class Baloon extends Aircraft implements Flyable{
         this.weatherTower = WeatherTower;
         this.weatherTower.register(this);
 //        System.out.println("Tower says: Balloon#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
-        BufferInFile.RegisterBuffer().print("Tower says: Balloon#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
+        BufferAircraft.RegisterBuffer().print("Tower says: Balloon#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 }

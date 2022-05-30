@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
-import ro.academyplus.avaj.simulator.WeatherTower;
+import ft.school21.avaj.simulator.WeatherTower;
 
 import java.util.HashMap;;
 
@@ -28,36 +28,36 @@ public class Helicopter extends Aircraft implements Flyable{
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() + 2);
 //                System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SUN"));
-                BufferInFile.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SUN"));
+                BufferAircraft.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SUN"));
                 break;
             case "RAIN": //RAIN
                 this.coordinates = new Coordinates(this.coordinates.getLongitude() + 5,
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight());
 //                System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
-                BufferInFile.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
+                BufferAircraft.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("RAIN"));
                 break;
             case "FOG": //FOG
                 this.coordinates = new Coordinates(this.coordinates.getLongitude() + 1,
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight());
 //                System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + state.get("FOG"));
-                BufferInFile.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("FOG"));
+                BufferAircraft.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("FOG"));
                 break;
             case "SNOW": //SNOW
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(),
                         this.coordinates.getLatitude(),
                         this.coordinates.getHeight() - 12);
 //                System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
-                BufferInFile.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
+                BufferAircraft.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + "): " + state.get("SNOW"));
                 break;
         }
         if (this.coordinates.getHeight() <= 0)
         {
 //            System.out.println("Helicopter#" + this.name + "(" + this.id + ") landing.");
 //            System.out.println("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
-            BufferInFile.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + ") landing.");
-            BufferInFile.RegisterBuffer().print("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
+            BufferAircraft.RegisterBuffer().print("Helicopter#" + this.name + "(" + this.id + ") landing.");
+            BufferAircraft.RegisterBuffer().print("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.");
             this.weatherTower.unregister(this);
         }
     }
@@ -67,7 +67,7 @@ public class Helicopter extends Aircraft implements Flyable{
         this.weatherTower = WeatherTower;
         this.weatherTower.register(this);
 //        System.out.println("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
-        BufferInFile.RegisterBuffer().print("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
+        BufferAircraft.RegisterBuffer().print("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 
 

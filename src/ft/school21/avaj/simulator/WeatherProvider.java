@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator;
+package ft.school21.avaj.simulator;
 
-import ro.academyplus.avaj.aircraft.Coordinates;
+import ft.school21.avaj.aircraft.Coordinates;
 
 import java.util.Random;
 

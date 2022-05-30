@@ -1,26 +1,26 @@
-package ro.academyplus.avaj.aircraft;
+package ft.school21.avaj.aircraft;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class BufferInFile {
+public class BufferAircraft {
 
-    private static BufferInFile bufferInFile;
+    private static BufferAircraft bufferInFile;
     private static FileOutputStream fileOutputStream;
     private static File file;
 
-    private BufferInFile()
+    private BufferAircraft()
     {
     }
 
-    public static BufferInFile RegisterBuffer()
+    public static BufferAircraft RegisterBuffer()
     {
         if (bufferInFile == null)
         {
             try {
-                bufferInFile = new BufferInFile();
+                bufferInFile = new BufferAircraft();
                 file = new File("simulation.txt");
                 fileOutputStream = new FileOutputStream(file, false);
             } catch (FileNotFoundException e) {

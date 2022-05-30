@@ -1,4 +1,4 @@
-package ro.academyplus.avaj.simulator;
+package ft.school21.avaj.simulator;
 
 public class MyException extends Exception{
 
