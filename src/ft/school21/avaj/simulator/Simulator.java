@@ -8,45 +8,44 @@ public class Simulator {
     static int timesSim;
     static WeatherTower weatherTower;
 
-    public static void main(String[] args) throws MyException {
-        if (args.length != 1)
-        {
-            throw new MyException("Invalid argument!!!");
-        }
+    public static void main(String[] args) {
         try {
+            if (args.length != 1) {
+            throw new ArgumentException("Invalid argument!!!");
+            }
             InitAirCraft(ParsArgs(args[0]));
             for (int i = timesSim; i > 0; i--)
             {
                 weatherTower.changeWeather();
             }
         }
-        catch (MyException e) {
-            e.printMyException("Invalid parsing");
+        catch (RuntimeException e) {
+            System.err.println(e.getMessage());
         }
         finally {
             BufferAircraft.closeBuf();
         }
     }
 
-    static void CheckParameters(String[] parameters) throws MyException {
+    static void CheckParameters(String[] parameters) throws ParsingException {
         for (String s : parameters) {
             if (s.equals(""))
-                throw new MyException("Invalid parsing");
+                throw new ParsingException("Invalid parsing");
         }
     }
 
-    static void InitAirCraft(String[] arrInfo) throws MyException {
+    static void InitAirCraft(String[] arrInfo) throws ParsingException {
         if (arrInfo == null) {
-            throw new MyException("Invalid parsing");
+            throw new ParsingException("Invalid parsing");
         }
         try {
             if (arrInfo[0].length() != 0)
                 timesSim = Integer.parseInt(arrInfo[0]);
             else
-                throw new MyException("Invalid parsing");
+                throw new ParsingException("Invalid parsing");
         }
         catch (RuntimeException e) {
-            throw new MyException("Invalid parsing");
+            throw new ParsingException("Invalid parsing");
         }
         weatherTower = new WeatherTower();
         for (int i = 1; i < arrInfo.length; i++) {
@@ -57,15 +56,15 @@ public class Simulator {
                         Integer.parseInt(parameters[3]), Integer.parseInt(parameters[4])).registerTower(weatherTower);
             }
             else
-                throw new MyException("Invalid parsing");
+                throw new ParsingException("Invalid parsing");
         }
     }
 
-    static String[] ParsArgs(String strFile) throws MyException {
+    static String[] ParsArgs(String strFile) throws ParsingException {
         File file = new File(strFile);
         if (!file.exists())
         {
-            throw new MyException("Invalid parsing");
+            throw new ParsingException("Invalid parsing");
         }
         String str = "";
 
