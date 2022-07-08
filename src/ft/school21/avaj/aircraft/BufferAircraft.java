@@ -24,7 +24,7 @@ public class BufferAircraft {
                 file = new File("simulation.txt");
                 fileOutputStream = new FileOutputStream(file, false);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                e.printStackTrace(System.out);
             }
         }
         return bufferInFile;
@@ -36,7 +36,7 @@ public class BufferAircraft {
             fileOutputStream.write(str.getBytes());
             fileOutputStream.write("\n".getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -46,7 +46,7 @@ public class BufferAircraft {
             try {
                 fileOutputStream.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                e.printStackTrace(System.out);
             }
         }
     }

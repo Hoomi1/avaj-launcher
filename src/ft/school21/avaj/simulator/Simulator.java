@@ -11,7 +11,7 @@ public class Simulator {
     public static void main(String[] args) {
         try {
             if (args.length != 1) {
-            throw new ArgumentException("Invalid argument!!!");
+                throw new ArgumentException("Invalid argument!!!");
             }
             InitAirCraft(ParsArgs(args[0]));
             for (int i = timesSim; i > 0; i--)
@@ -20,7 +20,7 @@ public class Simulator {
             }
         }
         catch (RuntimeException e) {
-            System.err.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         finally {
             BufferAircraft.closeBuf();
@@ -77,7 +77,7 @@ public class Simulator {
             }
             inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
         return str.split("\n");
     }
